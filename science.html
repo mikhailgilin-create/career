@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алексей Дмитриев | Наука</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --paper:#fbfaf7;
+  --paper-2:#f3efe7;
+  --card:#ffffffcc;
+  --ink:#151923;
+  --muted:#687080;
+  --line:#ded8cd;
+  --blue:#2557e8;
+  --cyan:#28b7b0;
+  --sand:#e9dfcf;
+  --apricot:#ff8a5b;
+  --shadow:0 26px 70px rgba(36,42,54,.11);
+  --radius-xl:34px;
+  --radius-lg:24px;
+  --radius-md:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  font-family:'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 8% 4%, rgba(37,87,232,.12) 0, transparent 32%),
+    radial-gradient(circle at 92% 12%, rgba(40,183,176,.13) 0, transparent 30%),
+    linear-gradient(135deg, var(--paper) 0%, #f6f1e8 48%, #f8fbfb 100%);
+  color:var(--ink);
+  line-height:1.65;
+  padding:22px;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(21,25,35,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,25,35,.035) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom, #000, transparent 78%);
+}
+a{color:inherit}
+.site{
+  max-width:1180px;
+  margin:0 auto;
+  position:relative;
+}
+.topbar{
+  position:sticky;
+  top:16px;
+  z-index:20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:12px 14px 12px 18px;
+  border:1px solid rgba(222,216,205,.85);
+  border-radius:999px;
+  background:rgba(251,250,247,.78);
+  backdrop-filter:blur(18px);
+  box-shadow:0 14px 38px rgba(45,50,62,.08);
+}
+.brand{
+  display:flex;align-items:center;gap:12px;
+  min-width:220px;
+}
+.monogram{
+  width:42px;height:42px;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#151923,#34405d);
+  color:#fff;font-weight:800;letter-spacing:.02em;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18), 0 10px 26px rgba(21,25,35,.18);
+}
+.brand small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;line-height:1.2}
+.brand strong{font-size:.98rem;line-height:1.15}
+.nav{
+  display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;
+}
+.nav a{
+  text-decoration:none;
+  font-size:.88rem;
+  font-weight:700;
+  color:#596171;
+  padding:10px 14px;
+  border-radius:999px;
+  transition:.22s ease;
+}
+.nav a:hover{background:#fff;color:var(--ink);box-shadow:0 8px 22px rgba(36,42,54,.08)}
+.nav a.active{background:var(--ink);color:#fff;box-shadow:0 12px 28px rgba(21,25,35,.18)}
+.hero{
+  margin-top:26px;
+  min-height:390px;
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:22px;
+}
+.hero-main,.hero-side,.panel{
+  border:1px solid rgba(222,216,205,.9);
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(14px);
+  box-shadow:var(--shadow);
+}
+.hero-main{
+  border-radius:var(--radius-xl);
+  padding:54px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-main::after{
+  content:"";
+  position:absolute;
+  width:270px;height:270px;border-radius:50%;
+  right:-90px;top:-85px;
+  background:radial-gradient(circle, rgba(37,87,232,.18), transparent 68%);
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-size:.75rem;
+  font-weight:800;
+  color:var(--blue);
+  margin-bottom:24px;
+}
+.eyebrow::before{content:"";width:32px;height:2px;background:var(--blue);border-radius:999px}
+h1{
+  font-family:'Fraunces', Georgia, serif;
+  font-size:clamp(3.1rem,7vw,6.6rem);
+  line-height:.93;
+  letter-spacing:-.075em;
+  max-width:820px;
+  margin-bottom:26px;
+}
+.lead{
+  color:#3f4653;
+  font-size:clamp(1.05rem,1.8vw,1.28rem);
+  max-width:760px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:46px;
+  padding:12px 18px;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.92rem;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  transition:.2s ease;
+}
+.button.primary{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 12px 28px rgba(37,87,232,.22)}
+.button:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(36,42,54,.10)}
+.hero-side{
+  border-radius:var(--radius-xl);
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:18px;
+  background:linear-gradient(160deg, rgba(255,255,255,.84), rgba(243,239,231,.78));
+}
+.portrait{
+  aspect-ratio:1/1;
+  border-radius:28px;
+  background:
+    linear-gradient(140deg, rgba(37,87,232,.95), rgba(40,183,176,.85)),
+    radial-gradient(circle at 40% 30%, #fff 0, transparent 36%);
+  display:grid;place-items:center;
+  color:#fff;
+  font-family:'Fraunces', Georgia, serif;
+  font-size:clamp(4.5rem,9vw,7rem);
+  letter-spacing:-.08em;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);
+  position:relative;overflow:hidden;
+}
+.portrait::after{
+  content:"applied mathematics / systems analysis";
+  position:absolute;left:20px;right:20px;bottom:18px;
+  font-family:'Manrope', sans-serif;
+  font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;line-height:1.35;
+  opacity:.86;
+}
+.quick-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{border:1px solid rgba(222,216,205,.9);border-radius:18px;background:#fff;padding:14px}
+.fact b{display:block;font-size:1.42rem;line-height:1.1;letter-spacing:-.04em;color:var(--ink)}
+.fact span{display:block;margin-top:3px;color:var(--muted);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.section{margin-top:24px}
+.section-head{
+  display:flex;align-items:end;justify-content:space-between;gap:24px;
+  margin:44px 4px 18px;
+}
+h2{
+  font-family:'Fraunces', Georgia, serif;
+  font-size:clamp(2rem,3.6vw,3.5rem);
+  line-height:1;
+  letter-spacing:-.055em;
+}
+.section-note{max-width:540px;color:var(--muted);font-size:.98rem}
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+}
+.panel{
+  border-radius:var(--radius-lg);
+  padding:26px;
+  overflow:hidden;
+}
+.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
+.panel h3,.panel h4{letter-spacing:-.025em;line-height:1.15;margin-bottom:10px}
+.panel h3{font-size:1.35rem}.panel h4{font-size:1.08rem}
+.panel p{color:#4b5360}
+.kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;font-weight:900;color:var(--blue);margin-bottom:12px}
+.marker-list{list-style:none;display:grid;gap:12px;margin-top:12px}
+.marker-list li{display:flex;gap:12px;color:#454d59}
+.marker-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-top:.62em;flex:0 0 auto;box-shadow:0 0 0 5px rgba(40,183,176,.12)}
+.timeline{position:relative;display:grid;gap:12px;margin-top:8px}
+.step{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:16px;border:1px solid #e7e0d5;border-radius:18px;background:#fff}
+.step time{font-weight:900;color:var(--blue);letter-spacing:-.02em}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{display:inline-flex;align-items:center;border:1px solid rgba(37,87,232,.16);background:rgba(37,87,232,.07);color:#214bc4;padding:7px 10px;border-radius:999px;font-size:.78rem;font-weight:800}
+.project{border-left:3px solid var(--blue);padding-left:18px;margin-top:18px}
+.project+.project{padding-top:18px;border-top:1px solid #eee6dc}
+.meta{font-size:.86rem;color:var(--muted);font-weight:700;margin-bottom:6px}
+.publication{display:grid;grid-template-columns:72px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid #eee6dc}
+.publication:last-child{border-bottom:0}
+.publication .year{font-weight:900;color:var(--blue)}
+.quote{
+  position:relative;
+  background:linear-gradient(135deg,#fff, #f7f2e9);
+}
+.quote::before{content:"“";position:absolute;right:24px;top:10px;font-family:'Fraunces', Georgia, serif;font-size:8rem;line-height:1;color:rgba(37,87,232,.10)}
+.thanks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.person{padding:18px;border-radius:20px;background:#fff;border:1px solid #e7e0d5}
+.person b{display:block}.person span{color:var(--muted);font-size:.9rem}
+.footer{
+  margin:24px 0 4px;
+  padding:26px;
+  border:1px solid rgba(222,216,205,.9);
+  border-radius:var(--radius-lg);
+  background:rgba(255,255,255,.68);
+  color:var(--muted);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.footer a{text-decoration:none;color:var(--ink);font-weight:800}
+@media (max-width:900px){
+  body{padding:14px}.hero{grid-template-columns:1fr}.hero-main{padding:34px}.topbar{position:relative;top:0;border-radius:26px;align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}.brand{min-width:0}.span-4,.span-5,.span-6,.span-7,.span-8,.span-12{grid-column:span 12}.section-head{display:block}.section-note{margin-top:12px}.thanks-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  h1{font-size:3.25rem}.hero-main{padding:28px 22px}.panel{padding:20px}.quick-facts,.thanks-grid{grid-template-columns:1fr}.step,.publication{grid-template-columns:1fr}.nav a{font-size:.82rem;padding:9px 11px}.topbar{padding:14px}.footer{display:block}.footer p+p{margin-top:12px}
+}
+</style>
+</head>
+<body>
+  <main class="site">
+    <header class="topbar">
+      <div class="brand"><div class="monogram">АД</div><div><small>Applied research</small><strong>Алексей Дмитриев</strong></div></div>
+      <nav class="nav" aria-label="Основная навигация"><a href="index.html" class="">О себе</a><a href="science.html" class="active">Наука</a><a href="industry.html" class="">Отрасль</a><a href="thanks.html" class="">Благодарности</a></nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">Research profile</div>
+        <h1>Научная деятельность</h1>
+        <p class="lead">Исследования в области математического моделирования, машинного обучения и сложных систем с акцентом на методы, которые сохраняют научную строгость и работают в прикладных задачах.</p>
+        <div class="hero-actions"><a class="button primary" href="science.html">Научный профиль</a><a class="button" href="industry.html">Отраслевые проекты</a></div>
+      </div>
+      <aside class="hero-side">
+        <div class="portrait">АД</div>
+        <div class="quick-facts"><div class="fact"><b>10+</b><span>лет опыта</span></div><div class="fact"><b>50+</b><span>публикаций</span></div><div class="fact"><b>AI</b><span>прикладные модели</span></div><div class="fact"><b>R&D</b><span>проекты</span></div></div>
+      </aside>
+    </section>
+
+    
+<section class="section">
+  <div class="section-head"><h2>Исследовательские направления</h2><p class="section-note">Научный блок оформлен как карта компетенций: направления, результаты, публикации и преподавание представлены в одной логике.</p></div>
+  <div class="bento">
+    <article class="panel span-6"><div class="kicker">Neural systems</div><h3>Нейросетевые архитектуры</h3><p>Разработка гибридных моделей для прогнозирования временных рядов, обработки сигналов и анализа сложных динамических процессов.</p></article>
+    <article class="panel span-6"><div class="kicker">Multiscale models</div><h3>Многомасштабное моделирование</h3><p>Моделирование процессов от микро- до макроуровня в физико-химических, технических и биологических системах.</p></article>
+    <article class="panel span-4"><div class="kicker">Applied AI</div><h3>Прикладной AI</h3><p>Интеллектуальные системы для энергетики, логистики, промышленности и инженерного образования.</p></article>
+    <article class="panel span-4"><div class="kicker">Statistics</div><h3>Математическая статистика</h3><p>Методы анализа данных и принятия решений в условиях неопределённости.</p></article>
+    <article class="panel span-4"><div class="kicker">Indicators</div><h3>Научные показатели</h3><div class="quick-facts"><div class="fact"><b>12</b><span>статей Q1</span></div><div class="fact"><b>2024</b><span>грант РНФ</span></div><div class="fact"><b>2025</b><span>монография</span></div><div class="fact"><b>3</b><span>аспиранта</span></div></div></article>
+    <article class="panel span-8"><div class="kicker">Selected publications</div><h3>Избранные публикации</h3><div class="publication"><div class="year">2025</div><div><strong>Dmitriev A., Volkov E.</strong> “Hybrid neural networks for chaotic systems prediction” // <em>Applied Mathematics and Computation</em>, Vol. 478.</div></div><div class="publication"><div class="year">2024</div><div><strong>Dmitriev A.</strong> “Multiscale modeling of thermal processes” // <em>International Journal of Heat and Mass Transfer</em>, Vol. 215.</div></div><div class="publication"><div class="year">2023</div><div><strong>Dmitriev A., Smirnov P.</strong> “Optimization of industrial processes using machine learning” // <em>IEEE Transactions on Industrial Informatics</em>, Vol. 19.</div></div><div class="publication"><div class="year">2022</div><div><strong>Dmitriev A., Mikhailov S.</strong> “Mathematical models for energy systems” // <em>Energy Reports</em>, Vol. 8.</div></div></article>
+    <article class="panel span-4"><div class="kicker">Teaching</div><h3>Преподавание</h3><ul class="marker-list"><li>«Математическое моделирование» — МФТИ, магистратура</li><li>«Прикладной AI для инженеров» — корпоративный курс</li><li>«Анализ данных и статистика» — ВШЭ, бакалавриат</li></ul></article>
+  </div>
+</section>
+
+    <footer class="footer">
+      <p><a href="mailto:a.dmitriev@example.com">a.dmitriev@example.com</a> · @alex_dmitriev · /in/alexdmitriev</p>
+      <p>© 2026 Алексей Дмитриев</p>
+    </footer>
+  </main>
+</body>
+</html>
